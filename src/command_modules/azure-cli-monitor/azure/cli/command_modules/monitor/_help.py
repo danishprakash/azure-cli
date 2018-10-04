@@ -45,11 +45,12 @@ helps['monitor alert create'] = """
     examples:
         - name: Create a high CPU usage alert on a VM with no actions.
           text: >
-            az monitor alert create -n rule1 -g {ResourceGroup} --target {VirtualMachineID} --condition "Percentage CPU > 90 avg 5m"
+            az monitor alert create -n rule1 -g {ResourceGroup} --target {VirtualMachineID} --condition "Percentage CPU > 90 avg 5m" --description "Create a high CPU usage alert on a VM with no actions"
         - name: Create a high CPU usage alert on a VM with email and webhook actions.
           text: |
             az monitor alert create -n rule1 -g {ResourceGroup} --target {VirtualMachineID} \\
                 --condition "Percentage CPU > 90 avg 5m" \\
+                --description "Create a high CPU usage alert on a VM with email and webhook actions" \\
                 --action email bob@contoso.com ann@contoso.com --email-service-owners \\
                 --action webhook https://www.contoso.com/alerts?type=HighCPU \\
                 --action webhook https://alerts.contoso.com apiKey={APIKey} type=HighCPU
@@ -160,10 +161,11 @@ helps['monitor metrics list'] = """
     examples:
         - name: List a VM's CPU usage for the past hour
           text: >
-              az monitor metrics list --resource {ResourceName} --metric "Percentage CPU"
+              az monitor metrics list --resource {ResourceName} --metric "Percentage CPU" --description "List a VM's CPU usage for the past hour"
         - name: List success E2E latency of a storage account and split the data series based on API name
           text: >
-              az monitor metrics list --resource {ResourceName} --metric SuccessE2ELatency \\
+              az monitor metrics list --resource {ResourceName} --metric SuccessE2ELatency \\ 
+                                      --description "List success E2E latency of a storage account and split the data series based on API name" \\
                                       --dimension ApiName
         - name: List success E2E latency of a storage account and split the data series based on both API name and geo type
           text: >
