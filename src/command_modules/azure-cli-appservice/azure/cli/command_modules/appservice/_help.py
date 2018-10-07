@@ -117,6 +117,11 @@ examples:
     - name: Set the default NodeJS version to 6.9.1 for a web app.
       text: >
         az webapp config appsettings set -g MyResourceGroup -n MyUniqueApp --settings WEBSITE_NODE_DEFAULT_VERSION=6.9.1
+parameters:
+    - name: --settings
+      type: string
+      short-summary: Space-separated appsettings in a format of key=value.
+      long-summary: Use "name=value" on Windows and 'key=value' on *nix systems.
 """
 
 helps['webapp config storage-account'] = """
